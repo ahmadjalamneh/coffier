@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+
+    <!-- style for the validation message -->
+    <style>
+      .validation-message {
+        color: red;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="datetime"></div>
+    <h1>BMI Calculator</h1>
+    <form>
+      <label for="height">Height (cm):</label>
+      <input type="text" id="height" placeholder="Enter height" />
+      <span id="heightError" class="validation-message"></span><br />
+
+      <label for="weight">Weight (kg):</label>
+      <input type="text" id="weight" placeholder="Enter weight"/>
+      <span id="weightError" class="validation-message"></span><br />
+
+      <label>Gender:</label>
+      <input type="radio" name="gender" value="male" checked/> Male
+      <input type="radio" name="gender" value="female" /> Female
+      <span id="genderError" class="validation-message"></span><br />
+
+      <label>Lifestyle:</label>
+      <input type="checkbox" name="lifestyle" value="active" /> Active
+      <input type="checkbox" name="lifestyle" value="sedentary" /> Sedentary
+      <span id="lifestyleError" class="validation-message" ></span
+      ><br />
+      
+      <textarea
+        name="message"
+        rows="10"
+        cols="30"
+        id="result"
+        readonly
+        placeholder="YOUR BMI"
+      ></textarea>
+      <br>
+      <button type="button" onclick="calculateBMI()">Calculate BMI</button>
+      <button type="reset">Reset</button>
+    </form>
+
+    <script src="../index.js">
+    </script>
+
+    <script>
+        function updateDateTime(){
+        var dateTimeElement = document.getElementById ("datetime");
+        var now = new Date();
+        var dateTimeString =
+        "Current Date and Time: " + now.toLocaleDateString() +
+        ""+
+        now.toLocaleTimeString();
+        dateTimeElement.textContent = dateTimeString;
+        }
+        updateDateTime();
+        setInterval(updateDateTime,1000);
+    </script>
+  </body>
+</html>
